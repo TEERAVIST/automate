@@ -26,6 +26,6 @@ where_logging_write() {
   else
     log_info "Logs will be written to: '$LOG_FILE'."
   fi
-
-  printf "\n%s\n\n" "========================================="
+  #
+  # printf "\n%s\n\n" "========================================="
 }

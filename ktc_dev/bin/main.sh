@@ -12,10 +12,17 @@ source "../config/check_config.sh"
 
 ascii_logging_enable
 
-ascii_download
+where_logging_write
 
-log_info hi_iam_new_here
-
-log_error hi_iam_new_here_thesame
+ascii_config
 
 check_config_files
+
+ascii_backup
+ascii_remove
+ascii_download
+ascii_permissions
+ascii_linking
+ascii_moving
+ascii_wait
+ascii_service_stop
