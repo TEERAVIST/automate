@@ -1,3 +1,4 @@
+```
 root/
 ├── common/             # Shared resources for all projects
 │   ├── lib/            # Shared libraries and reusable scripts
@@ -47,3 +48,4 @@ root/
 │   └── ...
 └── README.md           # Root-level documentation
 
+```
