@@ -123,3 +123,8 @@
 [32m[INFO] 2024-12-03 02:56:31 Configuration file '../config/log_config.sh' exists [using for fundamental config].[0m
 [32m[INFO] 2024-12-03 02:56:31 Configuration file '../config/services_config.sh' exists [using for fundamental config].[0m
 [32m[INFO] 2024-12-03 02:56:31 Configuration file '../config/remove_items_config.sh' exists [using for fundamental config].[0m
+[32m[INFO] 2024-12-03 02:59:59 hi_iam_new_here[0m
+[31m[ERROR] 2024-12-03 02:59:59 hi_iam_new_here_thesame[0m
+[32m[INFO] 2024-12-03 02:59:59 Configuration file '../config/log_config.sh' exists [using for fundamental config].[0m
+[32m[INFO] 2024-12-03 02:59:59 Configuration file '../config/services_config.sh' exists [using for fundamental config].[0m
+[32m[INFO] 2024-12-03 02:59:59 Configuration file '../config/remove_items_config.sh' exists [using for fundamental config].[0m
