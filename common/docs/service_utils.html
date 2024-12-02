@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Service Management Script Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #000;
+    }
+
+    header {
+      background: #444;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    code {
+      background: #f0f0f0;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.95em;
+    }
+
+    pre {
+      background: #f4f4f4;
+      color: #000;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      overflow-x: auto;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 0.95em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #444;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Service Management Script Documentation</h1>
+  </header>
+  <main>
+    <section>
+      <h2>Overview</h2>
+      <p>
+        This script provides a set of functions for managing system services
+        in a Linux environment. It supports parallel execution for efficient
+        management of multiple services.
+      </p>
+    </section>
+    <section>
+      <h2>Prerequisites</h2>
+      <ul>
+        <li>Bash shell</li>
+        <li><code>systemctl</code> available on the system</li>
+        <li>Appropriate permissions to manage services</li>
+      </ul>
+    </section>
+    <section>
+      <h2>Setup</h2>
+      <p>
+        Save the script as <code>service_utils.sh</code> and make it
+        executable:
+      </p>
+      <pre><code>chmod +x service_utils.sh</code></pre>
+    </section>
+    <section>
+      <h2>Usage</h2>
+      <h3>Define Services</h3>
+      <p>
+        Edit the <code>SERVICES</code> array in the script to list the
+        services you want to manage:
+      </p>
+      <pre><code>SERVICES=("nginx" "mysql" "apache2")</code></pre>
+      <h3>Run the Script</h3>
+      <p>
+        Execute the script to perform batch operations on all services listed
+        in the <code>SERVICES</code> array:
+      </p>
+      <pre><code>./service_utils.sh</code></pre>
+    </section>
+    <section>
+      <h2>Available Functions</h2>
+      <ul>
+        <li>
+          <code>start_all_services</code>: Starts all services in the
+          <code>SERVICES</code> array.
+        </li>
+        <li>
+          <code>stop_all_services</code>: Stops all services in the
+          <code>SERVICES</code> array.
+        </li>
+        <li>
+          <code>restart_all_services</code>: Restarts all services in the
+          <code>SERVICES</code> array.
+        </li>
+        <li>
+          <code>reload_all_services</code>: Reloads the configuration for all
+          services in the <code>SERVICES</code> array.
+        </li>
+        <li>
+          <code>status_all_services</code>: Checks the status of all services
+          in the <code>SERVICES</code> array.
+        </li>
+        <li>
+          <code>enable_all_services</code>: Enables all services in the
+          <code>SERVICES</code> array to start on boot.
+        </li>
+        <li>
+          <code>disable_all_services</code>: Disables all services in the
+          <code>SERVICES</code> array from starting on boot.
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Example</h2>
+      <p>To start, restart, and check the status of services:</p>
+      <pre><code># Start all services
+          start_all_services
+
+          # Restart all services
+          restart_all_services
+
+          # Check status of all services
+          status_all_services</code></pre>
+    </section>
+    <section>
+      <h2>Notes</h2>
+      <ul>
+        <li>
+          Ensure the <code>SERVICES</code> array is updated with the services
+          you want to manage.
+        </li>
+        <li>
+          The script supports multithreading, so operations on services run in
+          parallel.
+        </li>
+        <li>
+          Use <code>wait_for_background_tasks</code> to ensure all background
+          tasks are completed before proceeding.
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2024 Service Management Script</p>
+  </footer>
+</body>
+
+</html>

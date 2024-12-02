@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Backup Utility Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: #2c3e50;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-left: 3px solid #3498db;
+      overflow-x: auto;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    code {
+      color: #e74c3c;
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    .example-title {
+      color: #2980b9;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Backup Utility Documentation</h1>
+
+  <h2>Overview</h2>
+  <p>The <code>backup_directory</code> utility is a Bash script for compressing and backing up files or directories. It
+    automatically deletes the original files after the backup is successfully created. The utility is designed with
+    features like conflict resolution, logging, and flexibility for use in automation or manual processes.</p>
+
+  <h2>Features</h2>
+  <ul>
+    <li><strong>Compresses Backups:</strong> Creates <code>.tar.gz</code> archives of the specified source files or
+      directories.</li>
+    <li><strong>Original Cleanup:</strong> Deletes the source files or directories after a successful backup.</li>
+    <li><strong>Handles Naming Conflicts:</strong> Automatically renames backups to prevent overwriting.</li>
+    <li><strong>Graceful Skipping:</strong> Skips non-existent files or directories with a warning.</li>
+    <li><strong>Integrated Logging:</strong> Uses the logging utility for tracking progress, warnings, and errors.</li>
+  </ul>
+
+  <h2>Prerequisites</h2>
+  <ul>
+    <li>Ensure the logging script <code>logging.sh</code> is sourced in the same environment.</li>
+    <li>Set the environment variable <code>LOG_FILE</code> to specify where logs should be saved.</li>
+  </ul>
+
+  <h2>Usage</h2>
+  <p>The utility is invoked using the following syntax:</p>
+  <pre><code>backup_directory
+      <source>
+      <destination>
+    </code></pre>
+  <p>
+    - <code>source</code>: The file or directory to back up. <br>
+    - <code>destination</code>: The target backup file path. The script appends <code>.tar.gz</code> automatically if
+    not provided.
+  </p>
+
+  <h3>Examples</h3>
+
+  <h4 class="example-title">1. Backing Up a Directory</h4>
+  <p>Command:</p>
+  <pre><code>backup_directory myfolder backups/myfolder_backup</code></pre>
+  <p>Result:</p>
+  <ul>
+    <li>Creates a compressed backup at <code>backups/myfolder_backup.tar.gz</code>.</li>
+    <li>Deletes the original <code>myfolder</code> directory.</li>
+  </ul>
+
+  <h4 class="example-title">2. Backing Up a File</h4>
+  <p>Command:</p>
+  <pre><code>backup_directory myfile.txt backups/myfile_backup</code></pre>
+  <p>Result:</p>
+  <ul>
+    <li>Creates a compressed backup at <code>backups/myfile_backup.tar.gz</code>.</li>
+    <li>Deletes the original <code>myfile.txt</code>.</li>
+  </ul>
+
+  <h4 class="example-title">3. Handling Missing Files or Directories</h4>
+  <p>Command:</p>
+  <pre><code>backup_directory nonexistent_file backups/nonexistent_backup</code></pre>
+  <p>Result:</p>
+  <ul>
+    <li>Logs a warning that the source does not exist.</li>
+    <li>Skips the backup process without errors.</li>
+  </ul>
+
+  <h4 class="example-title">4. Handling Naming Conflicts</h4>
+  <p>Command:</p>
+  <pre><code>backup_directory myfolder backups/myfolder_backup</code></pre>
+  <p>Scenario:</p>
+  <ul>
+    <li>The target <code>backups/myfolder_backup.tar.gz</code> already exists.</li>
+  </ul>
+  <p>Result:</p>
+  <ul>
+    <li>The existing backup is renamed to <code>backups/myfolder_backup_<timestamp>.tar.gz</code>.</li>
+    <li>A new backup is created at <code>backups/myfolder_backup.tar.gz</code>.</li>
+    <li>The original <code>myfolder</code> is deleted.</li>
+  </ul>
+
+  <h4 class="example-title">5. Same Source and Destination</h4>
+  <p>Command:</p>
+  <pre><code>backup_directory myfolder myfolder</code></pre>
+  <p>Result:</p>
+  <ul>
+    <li>Detects the conflict.</li>
+    <li>Creates a backup at <code>myfolder_backup_<timestamp>.tar.gz</code>.</li>
+    <li>Deletes the original <code>myfolder</code> directory.</li>
+  </ul>
+
+  <h2>Log Examples</h2>
+  <p>Sample logs generated during a backup process:</p>
+  <pre><code>
+      [INFO] YYYY-MM-DD HH:MM:SS Starting backup for 'myfolder'.
+      [INFO] YYYY-MM-DD HH:MM:SS Compressed backup created at 'backups/myfolder_backup.tar.gz'.
+      [INFO] YYYY-MM-DD HH:MM:SS Source 'myfolder' removed after backup.
+    </code></pre>
+  <p>For missing files:</p>
+  <pre><code>
+      [WARNING] YYYY-MM-DD HH:MM:SS Source 'nonexistent_file' does not exist. Skipping backup.
+    </code></pre>
+
+  <h2>Best Practices</h2>
+  <ul>
+    <li>Ensure the <code>$LOG_FILE</code> is correctly set before running the script.</li>
+    <li>Use descriptive and unique names for the destination to avoid unnecessary conflicts.</li>
+    <li>Review logs regularly to verify the success of backups or detect issues.</li>
+  </ul>
+
+  <h2>License</h2>
+  <p>This utility is open-source. Feel free to use, modify, and distribute it.</p>
+</body>
+
+</html>

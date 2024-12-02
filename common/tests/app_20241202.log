@@ -1,0 +1,19 @@
+[32m[INFO] 2024-12-02 16:54:35 Logs will be written to: '../tests/app_20241202.log'.[0m
+[33m[WARNING] 2024-12-02 16:54:35 Source '/home/toto/Practice/Bash/root/common/lib/test_backup' does not exist. Skipping backup.[0m
+[32m[INFO] 2024-12-02 16:54:35 Successfully copied '/home/toto/Practice/Bash/root/common/lib/test_file' to '/home/toto/Practice/Bash/root/common/lib/test'.[0m
+[32m[INFO] 2024-12-02 16:54:35 Verification complete. Contents of file '/home/toto/Practice/Bash/root/common/lib/test_file' and '/home/toto/Practice/Bash/root/common/lib/test' are identical.[0m
+[32m[INFO] 2024-12-02 16:54:35 Successfully copied '/home/toto/Practice/Bash/root/common/lib/test' to '/home/toto/Practice/Bash/root/common/lib/test_move/'.[0m
+[32m[INFO] 2024-12-02 16:54:35 Source '/home/toto/Practice/Bash/root/common/lib/test' is a directory. Skipping content verification.[0m
+[32m[INFO] 2024-12-02 16:54:35 Configuration file '../config/log_config.sh' exists [using for "root/common" path or fundamental config].[0m
+[32m[INFO] 2024-12-02 16:54:35 Configuration file '../config/services_config.sh' exists [using for "root/common" path or fundamental config].[0m
+[32m[INFO] 2024-12-02 16:54:35 Configuration file '../config/remove_items_config.sh' exists [using for "root/common" path or fundamental config].[0m
+[32m[INFO] 2024-12-02 16:54:35 Set permissions 770 and ownership to 'toto:toto' for path: ./test[0m
+[32m[INFO] 2024-12-02 16:54:35 Directory created: create_this_file_incommand/[0m
+[32m[INFO] 2024-12-02 16:54:35 File created: create_this_file_incommand.txt[0m
+[32m[INFO] 2024-12-02 16:54:35 Successfully created symlink from './test' to './test_file_linking'.[0m
+[32m[INFO] 2024-12-02 16:54:35 Verification complete. Symlink './test_file_linking' points to './test'.[0m
+[32m[INFO] 2024-12-02 16:54:35 Removed symlink: test_file_linking[0m
+[32m[INFO] 2024-12-02 16:54:35 Removed directory: create_this_file_incommand[0m
+[32m[INFO] 2024-12-02 16:54:35 Removed file: ../lib/create_this_file_incommand.txt[0m
+[32m[INFO] 2024-12-02 16:54:35 Waiting for all background tasks to complete...[0m
+[32m[INFO] 2024-12-02 16:54:35 All background tasks have completed.[0m

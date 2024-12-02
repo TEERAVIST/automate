@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logging Utility Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      color: #2c3e50;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-left: 3px solid #3498db;
+      overflow-x: auto;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    code {
+      color: #e74c3c;
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    .example-title {
+      color: #2980b9;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Logging Utility Documentation</h1>
+
+  <h2>Overview</h2>
+  <p>
+    The <code>logging.sh</code> script provides logging capabilities for Bash
+    scripts. It allows you to log informational messages, warnings, and errors
+    with timestamped entries. Logs are displayed with color-coded messages for
+    better readability in the terminal and are saved to a specified log file.
+  </p>
+
+  <h2>Features</h2>
+  <ul>
+    <li>
+      <strong>Color-Coded Logs:</strong>
+      <ul>
+        <li>
+          <strong>Info (Green):</strong> General information about script
+          execution.
+        </li>
+        <li>
+          <strong>Warning (Yellow):</strong> Non-critical issues that require
+          attention.
+        </li>
+        <li>
+          <strong>Error (Red):</strong> Critical issues that disrupt script
+          execution.
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>Timestamped Entries:</strong> Each log entry includes the
+      current date and time.
+    </li>
+    <li>
+      <strong>Log File Support:</strong> Messages are written to both the
+      terminal and a specified log file.
+    </li>
+  </ul>
+
+  <h2>Prerequisites</h2>
+  <ul>
+    <li>
+      Ensure the <code>logging.sh</code> script is available and sourced in
+      your environment.
+    </li>
+    <li>
+      Set the environment variable <code>LOG_FILE</code> to define where log
+      entries should be saved.
+    </li>
+  </ul>
+
+  <h2>Usage</h2>
+  <p>The utility provides three logging functions:</p>
+
+  <h3><code>log_info</code></h3>
+  <p>Logs an informational message in <strong>green</strong>.</p>
+  <p>Example:</p>
+  <pre><code>log_info "Backup process started."</code></pre>
+  <p>Output:</p>
+  <pre><code>[INFO] YYYY-MM-DD HH:MM:SS Backup process started.</code></pre>
+
+  <h3><code>log_warning</code></h3>
+  <p>Logs a warning message in <strong>yellow</strong>.</p>
+  <p>Example:</p>
+  <pre><code>log_warning "Source directory is empty."</code></pre>
+  <p>Output:</p>
+  <pre><code>[WARNING] YYYY-MM-DD HH:MM:SS Source directory is empty.</code></pre>
+
+  <h3><code>log_error</code></h3>
+  <p>Logs an error message in <strong>red</strong>.</p>
+  <p>Example:</p>
+  <pre><code>log_error "Failed to create backup."</code></pre>
+  <p>Output:</p>
+  <pre><code>[ERROR] YYYY-MM-DD HH:MM:SS Failed to create backup.</code></pre>
+
+  <h2>Integration</h2>
+  <h3>Step 1: Include the Script</h3>
+  <p>
+    To use the logging utility, source the <code>logging.sh</code> script in
+    your Bash script:
+  </p>
+  <pre><code>source /path/to/logging.sh</code></pre>
+
+  <h3>Step 2: Set the Log File</h3>
+  <p>
+    Set the <code>LOG_FILE</code> environment variable to define the log file
+    path:
+  </p>
+  <pre><code>export LOG_FILE="/path/to/log_file.log"</code></pre>
+
+  <h3>Step 3: Use Logging Functions</h3>
+  <p>Call the appropriate logging functions to log messages:</p>
+  <pre><code>
+      log_info "Starting script execution."
+      log_warning "Input directory is missing, using default."
+      log_error "Failed to connect to the database."
+    </code></pre>
+
+  <h2>Log File Example</h2>
+  <p>Entries in the specified log file will look like this:</p>
+  <pre><code>
+      [INFO] YYYY-MM-DD HH:MM:SS Starting script execution.
+      [WARNING] YYYY-MM-DD HH:MM:SS Input directory is missing, using default.
+      [ERROR] YYYY-MM-DD HH:MM:SS Failed to connect to the database.
+    </code></pre>
+
+  <h2>Best Practices</h2>
+  <ul>
+    <li>
+      Define and export <code>LOG_FILE</code> before using the logging
+      functions.
+    </li>
+    <li>
+      Use <code>log_info</code> for normal operations,
+      <code>log_warning</code> for recoverable issues, and
+      <code>log_error</code> for critical problems.
+    </li>
+    <li>
+      Periodically review the log file for troubleshooting and monitoring.
+    </li>
+  </ul>
+
+  <h2>License</h2>
+  <p>
+    This utility is open-source. Feel free to use, modify, and distribute it.
+  </p>
+</body>
+
+</html>

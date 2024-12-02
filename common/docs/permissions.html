@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Permission Management Script Guide</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+    }
+
+    nav {
+      background-color: #f1f1f1;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    nav a {
+      margin-right: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 20px;
+      margin: 10px auto;
+      max-width: 800px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #007bff;
+    }
+
+    pre {
+      background: #333;
+      color: #fff;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    code {
+      color: #d63384;
+    }
+
+    .example {
+      background: #e9f7ef;
+      padding: 10px;
+      border-left: 5px solid #28a745;
+      margin: 20px 0;
+      border-radius: 5px;
+    }
+
+    .error {
+      background: #f8d7da;
+      padding: 10px;
+      border-left: 5px solid #dc3545;
+      margin: 20px 0;
+      border-radius: 5px;
+    }
+
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Permission Management Script Guide</h1>
+  </header>
+
+  <nav>
+    <a href="#set-service-permissions">Service Permissions</a>
+    <a href="#set-java-permissions">Java Directory</a>
+    <a href="#setup-permissions">General Setup</a>
+    <a href="#set-config-permissions">Config Files</a>
+    <a href="#symlink-permissions">Symbolic Links</a>
+  </nav>
+
+  <section id="set-service-permissions">
+    <h2>Set Service Permissions</h2>
+    <p>
+      Use <code>set_service_permissions</code> to assign strict permissions to
+      service files.
+    </p>
+    <pre><code>set_service_permissions "/path/to/service/file"</code></pre>
+    <div class="example">
+      <strong>Example:</strong>
+      <p>
+        <code>set_service_permissions
+          "/etc/systemd/system/my-service.service"</code>
+      </p>
+      <p>
+        Sets permissions to <strong>640</strong> and ownership to
+        <strong>root:root</strong>.
+      </p>
+    </div>
+  </section>
+
+  <section id="set-java-permissions">
+    <h2>Set Java Directory Permissions</h2>
+    <p>
+      Use <code>set_java_permissions</code> to ensure ownership and
+      permissions for Java directories.
+    </p>
+    <pre><code>set_java_permissions "/path/to/java" "user:group"</code></pre>
+    <div class="example">
+      <strong>Example:</strong>
+      <p>
+        <code>set_java_permissions "/opt/java" "java_user:java_group"</code>
+      </p>
+      <p>
+        Sets ownership to <strong>java_user:java_group</strong> and
+        permissions to <strong>755</strong>.
+      </p>
+    </div>
+  </section>
+
+  <section id="setup-permissions">
+    <h2>Setup General Permissions</h2>
+    <p>
+      Use <code>setup_permissions</code> to recursively set permissions and
+      ownership for a path.
+    </p>
+    <pre><code>setup_permissions "/path/to/directory" "user:group" 775</code></pre>
+    <div class="example">
+      <strong>Example:</strong>
+      <p>
+        <code>setup_permissions "/var/www/myapp" "www-data:www-data" 775</code>
+      </p>
+      <p>
+        Sets permissions for the path to <strong>775</strong> and ownership to
+        <strong>www-data:www-data</strong>.
+      </p>
+    </div>
+  </section>
+
+  <section id="set-config-permissions">
+    <h2>Set Configuration File Permissions</h2>
+    <p>
+      Use <code>set_config_permissions</code> to apply strict permissions to
+      configuration files.
+    </p>
+    <pre><code>set_config_permissions "/path/to/config/file"</code></pre>
+    <div class="example">
+      <strong>Example:</strong>
+      <p><code>set_config_permissions "/etc/myapp.conf"</code></p>
+      <p>
+        Sets permissions to <strong>600</strong> and ownership to
+        <strong>root:root</strong>.
+      </p>
+    </div>
+  </section>
+
+  <section id="symlink-permissions">
+    <h2>Set Symbolic Link Permissions</h2>
+    <p>
+      Use <code>symlink_permissions</code> to assign ownership to symbolic
+      links.
+    </p>
+    <pre><code>symlink_permissions "/path/to/symlink" "user:group"</code></pre>
+    <div class="example">
+      <strong>Example:</strong>
+      <p>
+        <code>symlink_permissions "/usr/local/bin/my_symlink"
+          "myuser:mygroup"</code>
+      </p>
+      <p>
+        Assigns ownership to <strong>myuser:mygroup</strong> for the symbolic
+        link.
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Permission Management Script Guide &copy; 2024</p>
+  </footer>
+</body>
+
+</html>
