@@ -3,13 +3,13 @@
 # Function to set text color
 set_color() {
   case $1 in
-  "red") echo -e "\033[1;31m" ;;           # Red
-  "green") echo -e "\033[1;32m" ;;         # Green
-  "yellow") echo -e "\033[1;33m" ;;        # Yellow
-  "blue") echo -e "\033[1;34m" ;;          # Blue
-  "purple") echo -e "\033[1;35m" ;;        # Purple
-  "cyan") echo -e "\033[1;36m" ;;          # Cyan
-  "white") echo -e "\033[1;37m" ;;         # White
+  "red") echo -e "\033[1;31m" ;;    # Red
+  "green") echo -e "\033[1;32m" ;;  # Green
+  "yellow") echo -e "\033[1;33m" ;; # Yellow
+  "blue") echo -e "\033[1;34m" ;;   # Blue
+  "purple") echo -e "\033[1;35m" ;; # Purple
+  "cyan") echo -e "\033[1;36m" ;;   # Cyan
+    #  "white") echo -e "\033[1;37m" ;;         # White
   "gray") echo -e "\033[1;90m" ;;          # Gray
   "bright-red") echo -e "\033[1;91m" ;;    # Bright Red
   "bright-green") echo -e "\033[1;92m" ;;  # Bright Green
@@ -33,7 +33,7 @@ set_color() {
 # Function to select a random color
 random_color() {
   local colors=(
-    "red" "green" "yellow" "blue" "purple" "cyan" "white"
+    "red" "green" "yellow" "blue" "purple" "cyan"
     "gray" "bright-red" "bright-green" "bright-yellow"
     "bright-blue" "bright-purple" "bright-cyan" "bright-white"
     "orange" "pink" "lime" "teal" "gold" "indigo" "maroon"
