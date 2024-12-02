@@ -3,4 +3,5 @@ secret
 
 
 
-./*/logs
+# Ignore all logs directories in the project
+**/logs/
